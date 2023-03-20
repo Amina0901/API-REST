@@ -19,7 +19,9 @@ func ConnectToDB() {
 		SkipDefaultTransaction: true,
 	}) // Ouvrir une connexion de base de données MySQL avec Gorm
 	if err != nil {
+		
 		log.Fatalf("Failed to connect to database: %v", err) // Si la connexion échoue, afficher un message d'erreur et arrêter le programme
+	
 	}
 }
 

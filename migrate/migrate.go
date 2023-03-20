@@ -8,10 +8,12 @@ import (
 )
 func init(){
 	initializers.LoadEnvVariables()
-	initializers.ConnectToDatabase()
+	initializers.ConnectToDB()
 }
 
 func main(){
-	initializers.DB.AutoMigrate(&models.Post{})
-
+	initializers.DB.AutoMigrate(&models.Hotel{})
+	initializers.DB.AutoMigrate(&models.Client{})
+	initializers.DB.AutoMigrate(&models.Chambre{})
+	initializers.DB.AutoMigrate(&models.Reservation{})
 }

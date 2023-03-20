@@ -1,20 +1,21 @@
 package main
 
-import  "github.com/gin-gonic/gin"
+import (
+
+ "github.com/gin-gonic/gin"
+ "github.com/API-REST/initializers"
+ "github.com/API-REST/controllers"
+)
 	
 func init(){
 	initializers.LoadEnvVariables()
-	initializers.ConnectToDatabase()
+	initializers.ConnectToDB()
 }
 
 
 
 func main(){
 	r := gin.Default()
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
+	r.POST("/Hotel", controllers.HotelCreate)
 	r.Run() // listen and serve on 0.0.0.0:8080
 }
